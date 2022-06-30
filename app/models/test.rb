@@ -1,7 +1,9 @@
 class Test < ApplicationRecord
   belongs_to :category
-  has_many   :questions
-  has_many   :user_tests
+  belongs_to :user, class_name: 'User'
+  has_many   :questions, dependent: :destroy
+  has_many   :tests_users
+  has_many   :users, through: :tests_users
 
   def self.get_category_tests(name)
     Test.joins(:category).where(categories: {name: name}).order('tests.title DESC').pluck('tests.title')
