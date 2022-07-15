@@ -1,0 +1,12 @@
+<p>
+  <strong>Название теста:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Уровень сложности:</strong>
+  <%= @test.level %>
+</p>
+
+<%= link_to "Edit", edit_test_path(@test) %> |
+<%= link_to "Back", tests_path %>
