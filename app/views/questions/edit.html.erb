@@ -1,4 +1,4 @@
-<!--h2>Добавить вопрос по курсу: <%= @test.title %></h2-->
+<!--h2>Редактировать вопрос по курсу: <%= Test.find(@question.test_id).title %></h2-->
 <h2><%= question_header(@question)%></h2>
 
 <%= render 'form' %>
