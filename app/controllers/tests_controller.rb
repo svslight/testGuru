@@ -2,23 +2,26 @@ class TestsController < ApplicationController
 
   before_action :find_test, only: [:show, :edit, :update, :destroy]
 
+  # GET    /tests
   def index
     @tests = Test.all
   end
 
+  # GET  /tests/:id
   def show
-    @test = Test.find(params[:id])
-    # @questions = @test.questions
+    @questions = @test.questions
   end
 
-  def new 
+  # GET  /tests/new
+  def new
     @test = Test.new 
   end
 
+  # GET  /tests/:id/edit
   def edit
-    @test = Test.find(params[:id])
   end
 
+  # POST /tests
   def create 
     @test = Test.new(test_params)   # new - создать в памяти
 
@@ -29,9 +32,8 @@ class TestsController < ApplicationController
     end
   end
 
+  # PATCH  /tests/:id
   def update
-    @test = Test.find(params[:id]) # вместо создания - ищем существ тест
-
     if @test.update(test_params)  # вызываем метод update, вызываем параметры
       redirect_to @test           # перенаправляем на созданный объект
     else
@@ -39,20 +41,19 @@ class TestsController < ApplicationController
     end 
   end
 
+  # DELETE /tests/:id
   def destroy
-    @test = Test.find(params[:id])  # находим тест для удаления
-
     @test.destroy			              # вызываем метод destroy
     redirect_to tests_path          # список всех тестов без уд.записи
   end
 
   private 
 
-  def test_params
-    params.require(:test).permit(:title, :level, :category_id, :user_id)
-  end
-
   def find_test
     @test = Test.find(params[:id])
+  end
+  
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id, :user_id)
   end
 end

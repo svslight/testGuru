@@ -1,43 +1,71 @@
 class QuestionsController < ApplicationController
     
-  before_action :find_test, only: [:index, :create]
-  before_action :find_question, only: [:show, :destroy]
+  before_action :find_test, only: [:new, :create]
+  before_action :find_question, only: [:show, :edit, :update, :destroy]
   
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   
-  # GET /tests/:test_id/questions
+  # GET     /tests/:test_id/questions
   # Список вопросов теста http://127.0.0.1:3000/tests/6/questions
-  def index
-  end
+  #def index
+    # @test = Test.find(params[:test_id])
+  #end
   
-  # GET /questions/:id
+  # GET     /questions/:id
   # Конкретный вопрос теста  http://127.0.0.1:3000/questions/1
   def show
+   # @question = Question.find(params[:id])
   end
   
-  # GET /tests/:test_id/questions/new
+  # GET    /tests/:test_id/questions/new   /tests/6/questions/new
   # Вызов формы для создания вопроса
-  def new        
+  def new
+    # @test = Test.find(params[:test_id])
+    @question = @test.questions.new
+  end
+
+  # GET  /questions/:id/edit
+  def edit
   end
   
-  # POST /tests/:test_id/questions
+  # POST    /tests/:test_id/questions
   # Создать вопрос  http://127.0.0.1:3000/tests/6/questions/new
   def create
-    question = @test.questions.new(question_params)    
+    # @test = Test.find(params[:test_id])
+
+    @question = @test.questions.new(question_params)    
   
-    if question.save
-      render plain: 'Вопрос успешно создан!'
+    if @question.save
+      redirect_to test_path(@test)
+      # render plain: 'Вопрос успешно создан!'
     else
-      render plain: 'Ошибка при создании вопроса!'
+      render :new
+      # render plain: 'Ошибка при создании вопроса!'
+    end
+  end
+
+  #PATCH   /questions/:id
+  def update
+    # @test = Test.find(params[:test_id])
+
+    # @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
     end
   end
   
   # DELETE /questions/:id
   # http://127.0.0.1:3000/tests/6/questions
   def destroy
+    # @question = Question.find(params[:id])
+
     @question.destroy
 
-    render plain: 'Вопрос успешно удален!'
+    redirect_to test_path(@question.test)
+    # render plain: 'Вопрос успешно удален!'
   end
 
   private
