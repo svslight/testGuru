@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: [:show, :edit, :update, :destroy]
+  before_action :find_test, only: %i[ show edit update destroy start ]
+  before_action :find_user, only: :start
 
   # GET    /tests
   def index
@@ -47,12 +48,23 @@ class TestsController < ApplicationController
     redirect_to tests_path          # список всех тестов без уд.записи
   end
 
+  def start
+    # @test = Test.find(params[:id])        # найдем тест, который хотим проходить
+    @user.tests.push(@test)                 # добавим к user список тестов, которые он проходит с помощ ассоциации test(метод Push)
+    redirect_to @user.test_passage(@test)  # перенаправ на ресурс(test_passage-описать в модели User), отвечающий за прохождение конкретного теста
+  end
+
   private 
 
   def find_test
     @test = Test.find(params[:id])
   end
-  
+
+  # find_user который перед выполнением action#start позволит установить объект пользователя
+  def find_user
+    @user = User.first  # Берем 1го пользователя из базы (пока нет аутентификации usera) 
+  end 
+
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :user_id)
   end
