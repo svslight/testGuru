@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
   # Конкретный вопрос теста  http://127.0.0.1:3000/questions/1
   def show
    # @question = Question.find(params[:id])
+   @answers = @question.answers
   end
   
   # GET    /tests/:test_id/questions/new   /tests/6/questions/new

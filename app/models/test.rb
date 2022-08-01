@@ -1,17 +1,18 @@
 class Test < ApplicationRecord
-  belongs_to :category
-  belongs_to :user, class_name: 'User'
+
+  belongs_to :category, optional: true
+
+  belongs_to :user, class_name: 'User'  
+  # belongs_to :user, class_name: 'User', foreign_key: :user_id, optional: true
+  
   has_many   :questions, dependent: :destroy
-  has_many   :tests_users
-  has_many   :users, through: :tests_users
+
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   # default_scope { order(created_at: :desc) } 
 
-  # Может существовать только один Тест с данным названием и уровнем
-  # Наличие атрибута title
   validates :title, presence: true, uniqueness: { scope: :level }
-
-  # Уровень Теста может быть только положительным целым числом
   validates :level, numericality: { only_integer: true }
 
   # Выбор Тестов по уровню сложности:
