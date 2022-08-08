@@ -1,17 +1,17 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
+
+  # include Auth
 
   has_many :test_passages
   has_many :tests, through: :test_passages
-  # has_many :authored_tests, class_name: 'Test', foreigen_key: :user_id 
+  # has_many :authored_tests, class_name: 'Test', foreign_key: :user_id
 
-  validates :email, presence: true, uniqueness: true
+  has_secure_password
 
   def get_level_tests(level)
-    # Scope-метод
     tests.where(level: level)
-
-    # Метод модели
-    # Test.joins(:tests_users).where(tests: {level: level}, tests_users: {user_id: id})
   end
 
   def test_passage(test)
