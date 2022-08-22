@@ -1,0 +1,13 @@
+<h1>Редактировать Ответ</h1>
+
+<p>
+  <%= @answer.question.body %>
+</p>
+
+<%= render 'form', answer: @answer %>
+
+<br>
+
+<div>
+  <%= link_to 'Вернуться к Ответам', admin_question_path(@answer.question) %>
+</div>

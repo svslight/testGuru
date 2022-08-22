@@ -1,0 +1,6 @@
+<%# Фрагмент будет выводить flash сообщения, которые будут присутствовать в запросе  %>
+<%# Добавим стили в app/assets/stylesheets/flash.scss %>
+
+<% flash.each do |key, message| %>
+  <%= content_tag :p, message, class: "flash #{key}" %>
+<% end %>

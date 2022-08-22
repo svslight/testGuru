@@ -2,8 +2,8 @@ class Test < ApplicationRecord
 
   belongs_to :category, optional: true
 
-  belongs_to :user, class_name: 'User'  
-  # belongs_to :user, class_name: 'User', foreign_key: :user_id, optional: true
+  # belongs_to :user, class_name: 'User'  
+  belongs_to :author, class_name: 'User', foreign_key: :user_id #, optional: true
   
   has_many   :questions, dependent: :destroy
 
