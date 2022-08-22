@@ -1,0 +1,16 @@
+<!--h2>Прохождение теста. Курс: <%= Test.find(@question.test_id).title %></h2-->
+<h2>Курс: <%= @question.test.title %></h2>
+
+<h4>Вопрос: <%= @question.body %> </h4>
+
+<%= link_to 'Добавить новый ответ', new_admin_question_answer_path(@question) %>
+
+<p>Варианты ответов:</p>
+<ol>
+  <%= render @question.answers %>
+</ol>
+
+<p>
+  <%= link_to 'Редактировать вопрос', edit_admin_question_path(@question) %><br>
+  <%= link_to 'Вернуться к Вопросам', admin_test_path(@question.test) %>
+</p>
