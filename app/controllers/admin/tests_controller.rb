@@ -32,7 +32,8 @@ class Admin::TestsController < Admin::BaseController
 
     if @test.save
       # перенаправляем на созданный объект теста
-      redirect_to admin_tests_path, notice: "Добавлен новый тест! Автор: #{@test.author.first_name} #{@test.author.last_name}"
+      # redirect_to admin_tests_path, notice: "Добавлен новый тест! Автор: #{@test.author.first_name} #{@test.author.last_name}"
+      redirect_to admin_tests_path, notice: t('.success', first_name: @test.author.first_name, last_name: @test.author.last_name )
     else
       render  :new                  # рендерим форму 
     end

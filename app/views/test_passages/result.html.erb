@@ -1,4 +1,6 @@
-<h1>Тест по теме: <%= @test_passage.test.title %>. Завершен! </h1>
+<!--h1>Тест по теме: <%= @test_passage.test.title %>. Завершен! </h1-->
+
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
 <h2>
   <% if @test_passage.success? %>
@@ -12,4 +14,4 @@
   <% end %>
 </h2>
 
-<%= link_to 'Cписок Курсов', tests_path %>
+<%= link_to 'Cписок Тестов', tests_path %>

@@ -3,19 +3,19 @@
   <%= render 'shared/errors', resource: @test %>
 
   <p>
-    <%= form.label :title, 'Название курса' %><br>
+    <%= form.label :title %><br>
     <%= form.text_field :title, id: :test_title %>
   </p>
 
   <p>
-    <%= form.label :level, 'Уровень сложности' %><br>
+    <%= form.label :level %><br>
     <%= form.number_field :level, id: :test_level %>
   </p>
 
   <p>
-    <%= form.label :category_id, 'Категория' %><br>
+    <%= form.label :category_id %><br>
     <%= form.collection_select :category_id, Category.all, :id, :name, prompt: true %>
   </p>
 
-  <p><%= form.submit 'Сохранить' %></p>
+  <p><%= form.submit %></p>
 <% end %>
