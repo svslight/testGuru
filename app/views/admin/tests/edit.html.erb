@@ -1,5 +1,5 @@
-<h1>Изменить данные курса: <%= @test.title %></h1>
+<h1><%= t('.header', title: @test.title ) %></h1>
 
 <%= render 'form' %>
-<%= link_to "Вернуться к Вопросам", admin_test_path %><br>
-<%= link_to "Вернуться к списку Курсов", admin_tests_path %>
+
+<%= link_to t('.back') , admin_tests_path %>

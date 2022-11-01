@@ -1,6 +1,7 @@
 <!--h2>Редактировать вопрос по курсу: <%= Test.find(@question.test_id).title %></h2-->
-<h2><%= question_header(@question)%></h2>
+<!--h2><%= question_header(@question)%></h2-->
+<h2><%= t('.header', title: @question.test.title) %></h2>
 
 <%= render 'form' %>
 
-<%= link_to "Вернуться к Вопросам", admin_test_path(@question.test) %>
+<%= link_to t('.back'), admin_test_path(@question.test) %>

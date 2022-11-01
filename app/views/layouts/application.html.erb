@@ -14,10 +14,10 @@
     <%= render 'shared/header' %>
 
     <% if user_signed_in? %>      
-      <div class="nav user">
-        Добро пожаловать! <b><%= current_user.first_name %></b> Guru |
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      </div>
+      <p class="nav user">
+        <%= t('.welcome', user_name: current_user.first_name) %> |
+        <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>
+      </p>
     <% end %>
 
     <%= render 'shared/flash' %>

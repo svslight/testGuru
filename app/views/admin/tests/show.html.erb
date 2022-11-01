@@ -1,18 +1,20 @@
-<h2>Список вопросов по курсу: «<%= @test.title %>»</h2>
+<!--h2>Название теста: «<%= @test.title %>»</h2-->
+<h1><%= t('.header', title: @test.title) %></h1>
 
 <p>
-  <strong>Уровень сложности:</strong>
-  <%= test_level(@test) %>
+  <strong><%= t('.level', level: test_level(@test)) %> </strong>
 </p>
 
+<h2><%= t('.questions') %></h2>
+
 <p>
-  <%= link_to 'Создать новый вопрос', new_admin_test_question_path(@test.id) %>
+  <%= link_to t('.new_question'), new_admin_test_question_path(@test.id) %>
 </p>
 
 <table>
   <tr>
-    <th>Вопросы</th>
-    <th colspan="3">Действия</th>
+    <th><%= t('.title') %> </th>
+    <th colspan="3"><%= t('.actions') %> </th>
   </tr>
 
   <!-- %= render @questions %-->
@@ -20,6 +22,6 @@
 </table>
 
 <p>  
-  <%= link_to "Редактировать данные курса", edit_admin_test_path %><br>
-  <%= link_to "Вернуться к списку Курсов", admin_tests_path %>
+  <%= link_to t('.edit'), edit_admin_test_path(@test) %> |
+  <%= link_to t('.back'), admin_tests_path %>
 </p>

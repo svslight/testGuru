@@ -1,16 +1,19 @@
 <!--h2>Прохождение теста. Курс: <%= Test.find(@question.test_id).title %></h2-->
-<h2>Курс: <%= @question.test.title %></h2>
+<h1><%= t('.header', title: @question.test.title) %>  </h1>
 
-<h4>Вопрос: <%= @question.body %> </h4>
+<p>
+  <%= @question.body %> 
+</p>
 
-<%= link_to 'Добавить новый ответ', new_admin_question_answer_path(@question) %>
+<h2><%= t('.answers') %></h2>
 
-<p>Варианты ответов:</p>
+<%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
+
 <ol>
   <%= render @question.answers %>
 </ol>
 
 <p>
-  <%= link_to 'Редактировать вопрос', edit_admin_question_path(@question) %><br>
-  <%= link_to 'Вернуться к Вопросам', admin_test_path(@question.test) %>
+  <%= link_to t('.edit'), edit_admin_question_path(@question) %> |
+  <%= link_to t('.back'), admin_test_path(@question.test) %>
 </p>

@@ -1,4 +1,6 @@
-<h1>Создать новый курс</h1>
+<!--h1>Создать новый тест</h1-->
+<h1><%= t('.create') %></h1>
 
 <%= render 'form' %>
-<%= link_to "Вернуться к списку Курсов", admin_tests_path %>
+<%= link_to t('.back') , admin_tests_path %>
+<!--%= link_to "Вернуться к списку Курсов", admin_tests_path %-->
