@@ -42,16 +42,16 @@ class Admin::TestsController < Admin::BaseController
   # PATCH  /tests/:id
   def update
     if @test.update(test_params)                              # вызываем метод update, вызываем параметры
-      redirect_to admin_tests_path, notice: 'Тест обновлен!'  # перенаправляем на созданный объект
+      redirect_to admin_tests_path, notice: t('.success')     # перенаправляем на созданный объект
     else
-      render  :edit              # рендерим представление new 
+      render  :edit                                           # рендерим представление new 
     end 
   end
 
   # DELETE /tests/:id
   def destroy
-    @test.destroy			                                    # вызываем метод destroy
-    redirect_to admin_tests_path, notice: 'Тест удален!'  # список всех тестов без уд.записи
+    @test.destroy			                                        # вызываем метод destroy
+    redirect_to admin_tests_path, notice: t('.success')       # список всех тестов без уд.записи
   end
 
   def start
@@ -61,10 +61,14 @@ class Admin::TestsController < Admin::BaseController
     current_user.tests.push(@test)          # тест привязывается к тек пользователю
 
     # перенаправ на ресурс(test_passage-описать в модели User), отвечающий за прохождение конкретного теста
-    redirect_to current_user.test_passage(@test), notice: "Начался тест '#{@test.title}'"
+    redirect_to current_user.test_passage(@test)
   end
 
   private 
+
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id, :user_id)
+  end
 
   def find_test
     @test = Test.find(params[:id])
@@ -74,8 +78,4 @@ class Admin::TestsController < Admin::BaseController
   # def find_user
   #   @user = User.first  # Берем 1го пользователя из базы (пока нет аутентификации usera) 
   # end 
-
-  def test_params
-    params.require(:test).permit(:title, :level, :category_id, :user_id)
-  end
 end

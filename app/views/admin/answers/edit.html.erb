@@ -1,4 +1,4 @@
-<h1>Редактировать Ответ</h1>
+<h1><%= t('.header') %></h1>
 
 <p>
   <%= @answer.question.body %>
@@ -9,5 +9,5 @@
 <br>
 
 <div>
-  <%= link_to 'Вернуться к Ответам', admin_question_path(@answer.question) %>
+  <%= link_to t('.back'), admin_question_path(@answer.question) %>
 </div>

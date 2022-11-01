@@ -1,6 +1,7 @@
 <!--h2>Добавить вопрос по курсу: <%= @test.title %></h2-->
-<h2><%= question_header(@question)%></h2>
+<!--h2><%= question_header(@question)%></h2-->
+<h2><%= t('.create', title: @test.title) %></h2>
 
 <%= render 'form' %>
 
-<%= link_to "Вернуться к Вопросам", admin_test_path(@question.test) %>
+<%= link_to t('.back'), admin_test_path(@question.test) %>
