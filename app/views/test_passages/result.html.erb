@@ -1,17 +1,29 @@
 <!--h1>Тест по теме: <%= @test_passage.test.title %>. Завершен! </h1-->
 
-<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-6">
 
-<p>
-  <% if @test_passage.success? %>
-    <span class='success'>  
-      <%= t('.congratulations', percent: @test_passage.percent_correct_answers) %>
-    </span>
-  <% else %>
-    <span class='failure'> 
-      <%= t('.lose', percent: @test_passage.percent_correct_answers) %>
-    </span>
-  <% end %>
-</p>
+    <div class="card text-center" style="width: 28rem;">
 
-<%= link_to t('.back'), tests_path %>
+      <div class="card-header">
+        <h3><%= t('.header', title: @test_passage.test.title) %></h3>
+      </div>
+
+      <div class="card-body">
+        <% if @test_passage.success? %>
+          <span class='success'>  
+            <%= t('.congratulations', percent: @test_passage.percent_correct_answers) %>
+          </span>
+        <% else %>
+          <span class='failure'> 
+            <%= t('.lose', percent: @test_passage.percent_correct_answers) %>
+          </span>
+        <% end %>
+      </div>
+
+      <div class="card-footer">
+        <p><%= link_to t('.back'), tests_path, class: 'btn btn-sm btn-primary' %> </p>
+      </div>
+    </div>
+  </div>
+</div>

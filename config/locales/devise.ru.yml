@@ -69,11 +69,14 @@ ru:
       new:
         header: "Вход в TestGuru"
         login: "Авторизоваться"
+        remember_me: "Запомнить!"
+        enter_email: "Введите email"
+        password: "Пароль"
 
     shared:
       links:
-        login: "Авторизоваться"
-        sign_up: "Регистрация"
+        # login: "Авторизоваться"
+        # sign_up: "Регистрация"
         forgot: "Забыли свой пароль?"
         confirm_instruction: "Не получили подтверждение инструкции?"
         unlock_instruction: "Не получили инструкции по разблокировке?"
