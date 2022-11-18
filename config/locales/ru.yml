@@ -46,6 +46,8 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
 
+  description: "Вопрос о %{title} для TestGuru"
+
   tests:
     index:
       header: "Доступные Тесты"
@@ -69,6 +71,9 @@ ru:
       counter: "Вопрос № %{number} из %{total}"
     update:
       completed: "Тест завершён"
+    gist:
+      success: "Gist успешно сохранён! %{gist_url}"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     nav:
@@ -78,6 +83,7 @@ ru:
       # admin_panel: "Панель админа"
       # guru: "Гуру"
       # logout: "Выход"
+      gists_table: "Gists"
 
     questions:
       question:
@@ -156,6 +162,13 @@ ru:
       edit:
         header: "Редактировать Тест «%{title}»"
         back: "Назад"
+
+    gists:
+      index:
+        header: "Все Gists"
+        question: "Вопросы"
+        gist_url: "Ссылка на Gists"
+        user: "Почта пользователя"
 
   tests_mailer:
     completed_test:

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :test_passages, only: %i[show update] do 
     member do
       get :result  # показать результат конкретного теста
+      post :gist   # новый маршрут post Для :gist, чтобы сохранить данный вопрос
     end
   end
 
@@ -28,5 +29,5 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  
 end
