@@ -1,6 +1,8 @@
 # Создание Gist для конкретного вопроса
 
-class GistQuestionService  
+class GistQuestionService
+
+  attr_reader :client
 
   def initialize(question, client: nil)
     @question = question                    # переменая экз question
@@ -9,6 +11,8 @@ class GistQuestionService
     # Создаем клиент - если передали клиент при создании сервиса устанавливаем его, 
     # если нет - создаем новый GitHubClient, который определен в lib/clients/git_hub_client.rb 
     @client = client || GitHubClient.new
+
+    # @client = client || Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
   end
 
   # В данной архитектуре наш сервис отвечает только за создание gist для конкретного вопроса, 
@@ -28,8 +32,7 @@ class GistQuestionService
  
   def gist_params
     {
-      description: "A question about #{@test.title} from TestGuru",
-      # description: I18n.t('.description', title: @test.title),
+      description: I18n.t('.description', title: @test.title),
       files: {
         'test-guru-question.txt' => {
           content: gist_content

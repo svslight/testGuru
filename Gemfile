@@ -22,7 +22,7 @@ gem "puma", "~> 5.0"
 gem 'sass-rails', '>= 6'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-# gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.0'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -71,6 +71,7 @@ gem "bootsnap", require: false
 # NETWORKING
 gem 'faraday'
 gem 'octokit', '~> 4.0'
+# gem 'dotenv-rails'
 
 # LOCALIZATION
 gem 'rails-i18n' # , '~> 5.0'

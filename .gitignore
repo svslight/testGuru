@@ -31,3 +31,4 @@
 /config/master.key
 /config/database.yml
 /lib/clients/git_hub_client.rb
+.env

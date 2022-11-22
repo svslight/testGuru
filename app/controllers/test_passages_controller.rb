@@ -7,7 +7,7 @@ class TestPassagesController < ApplicationController
   def show
   end
 
-  def result    
+  def result   
   end
 
   def update
@@ -22,14 +22,27 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
+    question = @test_passage.current_question
+    request_to_gist = GistQuestionService.new(question)
+    result = request_to_gist.call
 
-    result = GistQuestionService.new(@test_passage.current_question).call
+    # result = GistQuestionService.new(@test_passage.current_question).call
+
+    # response = Result.new(request_to_gist.client)
 
     flash_options = if result.success?
+      # url = result.html_url
+      # current_user.gists.create(question_id: question.id, gist_url: url )
       { notice: t('.success') }
     else
-      { alert: t('.failure') }
+     { alert: t('.failure') }
     end
+
+    #flash_options = if result.success?
+    #  { notice: t('.success') }
+    #else
+    #  { alert: t('.failure') }
+    #end
 
     redirect_to @test_passage, flash_options
   end
