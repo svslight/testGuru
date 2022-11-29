@@ -80,6 +80,7 @@ gem 'rails-i18n' # , '~> 5.0'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5.0'
 gem 'sprockets-rails'
+gem 'octicons_helper'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
