@@ -22,7 +22,7 @@ gem "puma", "~> 5.0"
 gem 'sass-rails', '>= 6'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+# gem 'webpacker', '~> 5.0'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -71,7 +71,7 @@ gem "bootsnap", require: false
 # NETWORKING
 gem 'faraday'
 gem 'octokit', '~> 4.0'
-# gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # LOCALIZATION
 gem 'rails-i18n' # , '~> 5.0'
@@ -80,6 +80,7 @@ gem 'rails-i18n' # , '~> 5.0'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5.0'
 gem 'sprockets-rails'
+gem 'octicons_helper'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
