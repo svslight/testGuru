@@ -42,8 +42,8 @@ class Admin::TestsController < Admin::BaseController
   # PATCH  /tests/:id
   def update
     if @test.update(test_params)                              # вызываем метод update, вызываем параметры
-      # redirect_to admin_tests_path, notice: t('.success')     # перенаправляем на созданный объект
-      redirect_to [:admin, @test]
+      redirect_to admin_tests_path, notice: t('.success')     # перенаправляем на созданный объект
+      # redirect_to [:admin, @test]
     else
       render  :edit                                           # рендерим представление new 
     end 

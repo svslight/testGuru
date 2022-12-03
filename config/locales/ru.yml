@@ -66,11 +66,16 @@ ru:
       congratulations: "Поздравляем! Тест пройден успешно на %{percent} %"
       lose: "Тест не пройден! Процент успеха составил: %{percent} %"
       back: "Cписок Тестов"
+
     show:
       header: "Прохождение теста по теме: %{title}"
       counter: "Вопрос № %{number} из %{total}"
+      gist_question: "Сохранить вопрос!"
+      submit: "Далее"
+
     update:
       completed: "Тест завершён"
+
     gist:
       success: "Gist успешно сохранён! %{gist_url}"
       failure: "Во время сохранения gist произошла ошибка"
