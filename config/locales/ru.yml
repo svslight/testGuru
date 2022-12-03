@@ -66,11 +66,16 @@ ru:
       congratulations: "Поздравляем! Тест пройден успешно на %{percent} %"
       lose: "Тест не пройден! Процент успеха составил: %{percent} %"
       back: "Cписок Тестов"
+
     show:
       header: "Прохождение теста по теме: %{title}"
       counter: "Вопрос № %{number} из %{total}"
+      gist_question: "Сохранить вопрос!"
+      submit: "Далее"
+
     update:
       completed: "Тест завершён"
+
     gist:
       success: "Gist успешно сохранён! %{gist_url}"
       failure: "Во время сохранения gist произошла ошибка"
@@ -127,9 +132,11 @@ ru:
       create:
         success: "Тест создан %{first_name} %{last_name}"
       update:
-        success: "Тест обновлен"
+        success: "Тест был успешно обновлён!"
+      update_inline:
+        success: "Название Теста было успешно обновлено!"
       destroy:
-        success: "Тест удален"
+        success: "Тест был успешно удален!"
 
       index:
         header: "Доступные Тесты"
@@ -162,6 +169,9 @@ ru:
       edit:
         header: "Редактировать Тест «%{title}»"
         back: "Назад"
+
+      form_inline:
+        submit: "ОК"
 
     gists:
       index:

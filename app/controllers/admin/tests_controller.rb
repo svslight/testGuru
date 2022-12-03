@@ -4,12 +4,12 @@ class Admin::TestsController < Admin::BaseController
   # который залогинен и аутенцифицирован в приложении
   # before_action :authenticate_user!  # переносим в base_controller.rb
 
-  before_action :find_test, only: %i[ show edit update destroy start ]
+  before_action :find_tests, only: %i[index update_inline]
+  before_action :find_test, only: %i[show edit update destroy start update_inline]
   # before_action :find_user, only: :start
 
   # GET    /tests
   def index
-    @tests = Test.all
   end
 
   # GET  /tests/:id
@@ -43,9 +43,18 @@ class Admin::TestsController < Admin::BaseController
   def update
     if @test.update(test_params)                              # вызываем метод update, вызываем параметры
       redirect_to admin_tests_path, notice: t('.success')     # перенаправляем на созданный объект
+      # redirect_to [:admin, @test]
     else
       render  :edit                                           # рендерим представление new 
     end 
+  end
+
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path, notice: t('.success')
+    else
+      render :index
+    end
   end
 
   # DELETE /tests/:id
@@ -72,6 +81,10 @@ class Admin::TestsController < Admin::BaseController
 
   def find_test
     @test = Test.find(params[:id])
+  end
+
+  def find_tests
+    @tests = Test.all
   end
 
   # find_user который перед выполнением action#start позволит установить объект пользователя
