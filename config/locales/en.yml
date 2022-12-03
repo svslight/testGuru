@@ -157,6 +157,8 @@ en:
         success: "Test was successfully created %{first_name} %{last_name}"
       update:
         success: "Test was succesfully updated"
+      update_inline:
+        success: "Test Title was succesfully updated"
       destroy:
         success: "Test was succesfully destroyed"      
       index:
@@ -186,6 +188,8 @@ en:
       edit:
         header: "Edit Test «%{title}»"
         back: "Back"
+      form_inline:
+        submit: "ОК"
 
     gists:
       index:

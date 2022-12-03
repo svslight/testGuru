@@ -127,9 +127,11 @@ ru:
       create:
         success: "Тест создан %{first_name} %{last_name}"
       update:
-        success: "Тест обновлен"
+        success: "Тест был успешно обновлён!"
+      update_inline:
+        success: "Название Теста было успешно обновлено!"
       destroy:
-        success: "Тест удален"
+        success: "Тест был успешно удален!"
 
       index:
         header: "Доступные Тесты"
@@ -162,6 +164,9 @@ ru:
       edit:
         header: "Редактировать Тест «%{title}»"
         back: "Назад"
+
+      form_inline:
+        submit: "ОК"
 
     gists:
       index:
