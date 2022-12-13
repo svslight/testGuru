@@ -5,9 +5,9 @@
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
 
-  <td class="align-middle"><%= test_level(test) %></td>
-  
-  <td class="align-middle"><%= test.questions.size %></td>
+  <td class="text-center"><%= test_level(test) %></td>  
+  <td class="text-center"><%= test.questions.size %></td>
+  <td class="text-center"><%= test.category.name %></td>
 
   <td class="align-middle"><%= link_to t('.show'), 
                                         admin_test_path(test), 

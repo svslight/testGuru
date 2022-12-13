@@ -18,6 +18,11 @@ ru:
       answer:
         body: "Ответ"
         correct: "Верно"
+      badge:
+        title: "Название"
+        image: "Изображение"
+        rule_type: "Правила"
+        rule_value: "Описание"
         
     select:
       prompt: "Выбери категорию"
@@ -29,8 +34,10 @@ ru:
 
   shared:
     nav:
-      welcome: "Добро пожаловать! %{user_name} Гуру"
-      admin_panel: "Панель Админа"      
+      welcome: "Добро пожаловать! %{user_name}"
+      admin_panel: "Перейти в Панель Админа"
+      badge: "Список наград"
+      you_badge: "Ваши награды"     
       log_out: "Выйти"
       sign_up: "Регистрация"
       log_in: "Вход"
@@ -54,6 +61,7 @@ ru:
       title: "Название"
       level: "Уровень"
       questions: "Вопросы"
+      category: "Категория"
       actions: "Действия"
     start:
       begin: "Начался тест '%{title}'"
@@ -62,8 +70,9 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
+      header: "Тест %{title} завершён!"
       congratulations: "Поздравляем! Тест пройден успешно на %{percent} %"
+      badge: "Вы получили награду!!!»"
       lose: "Тест не пройден! Процент успеха составил: %{percent} %"
       back: "Cписок Тестов"
 
@@ -75,20 +84,69 @@ ru:
 
     update:
       completed: "Тест завершён"
+      new_awards: "Вы получили новые награды!"
 
     gist:
       success: "Gist успешно сохранён! %{gist_url}"
       failure: "Во время сохранения gist произошла ошибка"
 
+  badges:
+    index:        
+      badges_all: "Все существующие награды"
+      image: "Награды"
+      title_badge: "Правила"      
+      rule_type: "Тип"
+      rule_value: "Описание"
+      back: "Вернуться к Тестам"
+
+    show: 
+      you_header: "Уровень Ваших достижений"
+      you_badge: "Награды"
+      title_badge: "Правила"
+      count_badge: "Кол.пройденных Тестов"      
+      level: "Уровень сложности"
+      back: "Вернуться к Тестам"
+
   admin:
+    badges:
+      new:         
+        create: "Создать новую Награду"
+        back: "Назад"
+      index:
+        header: "Список всех Наград"
+        new_badge: "Создать Награду"
+        actions: "Действия"
+        image: "Изображения"
+        title: "Награды за пройденные тесты"
+        level: "Уровень сложности"
+        rule_type: "Правила"
+        rule_value: "Описание"
+      edit:
+        header: "Редактировать Награду" 
+        back: "Назад"
+      
+      badge:
+        show: "Просмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        choice: "Вы уверены?"
+
+      create:
+        success: "Награда создана!"
+      update:
+        success: "Награда успешно обновлена!"
+      destroy:
+        success: "Награда успешно удалена!"
+
     nav:
-      header: "Панель администратора TestGuru!"
-      welcome: "Добро пожаловать!"
+      header: "Панель администратора!  %{user_name}"
+      welcome: "Добро пожаловать! %{user_name}"
       log_out: "Выйти"
-      # admin_panel: "Панель админа"
+      admin_panel: "Панель Админа"
       # guru: "Гуру"
       # logout: "Выход"
-      gists_table: "Gists"
+      gists_table: "Сохраненные вопросы"
+      badge: "Список наград"
 
     questions:
       question:
@@ -144,6 +202,7 @@ ru:
         title: "Название"
         level: "Уровень"
         questions: "Вопросы"
+        category: "Категория"
         actions: "Действия"
 
       test:        
