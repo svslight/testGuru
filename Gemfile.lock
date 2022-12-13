@@ -123,6 +123,8 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    faraday-retry (2.0.0)
+      faraday (~> 2.0)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -321,6 +323,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faraday
+  faraday-retry
   importmap-rails
   jbuilder
   jquery-rails

@@ -1,15 +1,31 @@
-<nav class="navbar navbar-dark bg-info">
+<nav class="navbar navbar-dark bg-primary">
   <%= link_to 'TestGuru', root_path, class: 'navbar-brand', style: 'color: white' %>
 
-    <span class="navbar-text">
-      <% if user_signed_in?%>
-        <b><%= t('.welcome', user_name: current_user.first_name) %></b> |
-        <%= link_to t('.admin_panel'), admin_tests_path if current_user.admin? %> |
-        <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to t('.log_in'), new_user_session_path %> |
-        <%= link_to t('.sign_up'), new_user_registration_path %>
-      <% end %>
-    </span>
+  <span class="navbar-text">
+    <% if user_signed_in? %>
+      <b><%= t('.welcome', user_name: current_user.first_name) %></b>
+      <a style="margin-right: 150px;"><%= link_to t('.admin_panel'), admin_tests_path if current_user.admin? %></a>
+    <% end %>
+  </span>
 
+  <span class="navbar-text">
+    <% if user_signed_in? %>
+
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Действия
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="margin-left: -50px;">
+          <%= link_to t('.badge'), badges_path, style: 'color: #17a2b8', class: "dropdown-item" %>
+          <%= link_to t('.you_badge'), badge_path(id: current_user.id), style: 'color: #17a2b8', class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+            <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, style: 'color: #17a2b8', class: "dropdown-item" %>
+          </div>
+        </div>
+      </div>  
+    <% else %>
+      <%= link_to t('.log_in'), new_user_session_path %> |
+      <%= link_to t('.sign_up'), new_user_registration_path %>
+    <% end %>
+  </span>
 </nav>
